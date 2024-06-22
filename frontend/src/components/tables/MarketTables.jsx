@@ -28,12 +28,12 @@ function MarketsTable() {
   }, []);
 
   if (loading) {
-    return <div className='p-6 text-center'>Loading markets...</div>;
+    return <div className='p-3 md:p-6 text-center'>Loading markets...</div>;
   }
 
   if (error) {
     return (
-      <div className='p-6 text-center text-red-500'>
+      <div className='p-3 md:p-6 text-center text-red-500'>
         Error loading markets: {error}
       </div>
     );
@@ -41,42 +41,42 @@ function MarketsTable() {
 
   if (!marketsData || marketsData.length === 0) {
     return (
-      <div className='p-6 text-center'>
+      <div className='p-3 md:p-6 text-center'>
         No markets found. None may have been created yet.
       </div>
     );
   }
 
   return (
-    <div className='overflow-auto'>
-      <h1 className='text-sm md:text-lg font-medium text-gray-500 uppercase tracking-wider p-3 md:p-6'>
+    <div className='overflow-x-auto'>
+      <h1 className='text-xs md:text-lg font-medium text-gray-500 uppercase tracking-wider p-2 md:p-6'>
         Markets
       </h1>
-      <table className='w-full divide-y divide-gray-200 bg-primary-background'>
+      <table className='min-w-full divide-y divide-gray-200 bg-primary-background'>
         <thead className='bg-gray-50'>
           <tr>
-            <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+            <th className='px-3 md:px-6 py-2 md:py-3 text-left text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider'>
               Trade
             </th>
-            <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+            <th className='px-3 md:px-6 py-2 md:py-3 text-left text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider'>
               🪙
             </th>
-            <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+            <th className='px-3 md:px-6 py-2 md:py-3 text-left text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider'>
               Question
             </th>
-            <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+            <th className='px-3 md:px-6 py-2 md:py-3 text-left text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider'>
               📅 Closes
             </th>
-            <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+            <th className='px-3 md:px-6 py-2 md:py-3 text-left text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider'>
               Creator
             </th>
-            <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+            <th className='px-3 md:px-6 py-2 md:py-3 text-left text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider'>
               👤 Users
             </th>
-            <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+            <th className='px-3 md:px-6 py-2 md:py-3 text-left text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider'>
               📊 Size
             </th>
-            <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+            <th className='px-3 md:px-6 py-2 md:py-3 text-left text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider'>
               💬
             </th>
           </tr>
@@ -84,13 +84,13 @@ function MarketsTable() {
         <tbody className='bg-primary-background divide-y divide-gray-200'>
           {marketsData.map((marketData, index) => (
             <tr key={index}>
-              <td className='px-6 py-4 text-white'>
-                <Link to={`/markets/${marketData.market.id}`}>⬆️⬇️</Link>
+              <td className='px-3 md:px-6 py-2 md:py-4 whitespace-nowrap text-white'>
+                <Link to={`/markets/${marketData.market.id}`}>⬆️ ⬇️</Link>
               </td>
-              <td className='px-6 py-4 text-sm text-gray-500'>
+              <td className='px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-500'>
                 {marketData.lastProbability.toFixed(3)}
               </td>
-              <td className='px-6 py-4 text-sm font-mono text-gray-500'>
+              <td className='px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-mono text-gray-500'>
                 <Link
                   to={`/markets/${marketData.market.id}`}
                   className='text-blue-600 hover:text-blue-800'
@@ -98,12 +98,12 @@ function MarketsTable() {
                   {marketData.market.questionTitle}
                 </Link>
               </td>
-              <td className='px-6 py-4 text-sm text-gray-500'>
+              <td className='px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-500'>
                 {new Date(
                   marketData.market.resolutionDateTime
                 ).toLocaleDateString()}
               </td>
-              <td className='px-6 py-4 text-sm text-gray-500'>
+              <td className='px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-500'>
                 <Link
                   to={`/user/${marketData.creator.username}`}
                   className='text-blue-600 hover:text-blue-800 flex items-center'
@@ -114,13 +114,15 @@ function MarketsTable() {
                   @{marketData.creator.username}
                 </Link>
               </td>
-              <td className='px-6 py-4 text-sm text-gray-500'>
+              <td className='px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-500'>
                 {marketData.numUsers}
               </td>
-              <td className='px-6 py-4 text-sm text-gray-500'>
+              <td className='px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-500'>
                 {marketData.totalVolume}
               </td>
-              <td className='px-6 py-4 text-sm text-gray-500'>0</td>
+              <td className='px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-500'>
+                0
+              </td>
             </tr>
           ))}
         </tbody>
