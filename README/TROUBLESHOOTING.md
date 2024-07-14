@@ -12,3 +12,9 @@ Nothing here yet.
 ## Windows (WSL2)
 **ERROR: unable to locate `docker-compose-plugin`**
 - Many solutions, but one solution that has been verified to work is running VSCode inside WSL2 and installing the Docker plugin from there.
+
+**ERROR: `the command 'docker' could not be found in this WSL2 distro`**
+- Update Docker Desktop
+- Reinstall VSCode on WSL2
+- Update Docker extension for VSCode
+- Restart WSL2
