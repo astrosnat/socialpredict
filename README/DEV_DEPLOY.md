@@ -1,12 +1,12 @@
-## Hypothetical Deploying from Dev
+## Deploying from Dev
 
 ### Background
 
-As of 31 May 2024, SocialPredict does not have a production version launched. That is to say, SocialPredict is designed for development, meaning out of the box, everything it comes with can be worked on within a local machine, but it's not set up to be served securely as a production instance on the web that can't be easily hacked.
+As of 27 July 2024, SocialPredict does not have a production version launched. That is to say, SocialPredict is designed for development, meaning out of the box, everything it comes with can be worked on within a local machine. However, it's not set up to be served securely as a production instance on the web that can't be easily hacked.
 
 That being said, while not recommended, it is possible to adapt the development version of SocialPredict to run in a production environment in its current state, for small and experimental deployments.
 
-This document is geared at helping those who might want to convert the development version of socialpredict into a web deployment. While not all-encompassing and user caution is encouraged, this document can serve as a general guideline to get going.
+This document is geared at helping those who might want to convert the development version of SocialPredict into a web deployment. While not all-encompassing and user caution is encouraged, this document can serve as a general guideline to get going.
 
 ### Contents
 
@@ -14,16 +14,26 @@ This document is geared at helping those who might want to convert the developme
 
 First, you should purchase a domain, which you can do at any number of domain registrars. We are using Namecheap for this article.
 
+[step by step how-to on buying Namecheap domain goes here]
+
 
 ### Set Up Digital Ocean Account
 
 We are using Digital Ocean as a server, since it's predictable, easy and cheap. SocialPredict is designed to be performant, meaning it can perform well on a small server.
+
+[Write up how to set up a Digital Ocean account]
+
+[Write up how to set up your Droplet with Docker. Just do this out of the box, don't be fancy about it]
 
 Setup Droplet with Docker
 https://www.digitalocean.com/community/tutorials/how-to-use-the-docker-1-click-install-on-digitalocean
 
 Getting Started After Deploying Docker
 https://marketplace.digitalocean.com/apps/docker
+
+### SSH Time
+
+[Write up how to set up SSH. Add links.]
 
 
 ### Logging In via SSH
@@ -83,6 +93,10 @@ sudo reboot
 sudo systemctl status docker        # Check Docker service status
 sudo docker run hello-world         # Run a test Docker container
 ```
+
+### Pointing Your Domain To Your Droplet
+
+[add links for how to do this]
 
 ### Verifying Docker
 
@@ -148,7 +162,7 @@ docker build .
 This will build the docker image. After having done this, the image ID can be verified with:
 
 ```
-user@breirfoxforecast-alpha:/home/sample-dockerfile# docker images
+user@DROPLET_NAME:/home/sample-dockerfile# docker images
 REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
 <none>       <none>    71dea4f9eb20   2 minutes ago   15.7MB
 ```
@@ -202,18 +216,20 @@ dig yourdomain.com
 
 ### Clone the SocialPredict Repo
 
-Now that the domain has been pointed in the right direction and is working on propogating, the SocialPredict repo could be downloaded and run in the meantime.
+Now that the domain has been pointed in the right direction and is working on propagating, you can clone the SocialPredict repo. First off, check your GitHub version like this:
 
 ```
-root@breirfoxforecast-alpha:# cd /home
-root@breirfoxforecast-alpha:/home# git version
+root@DROPLET_NAME:# cd /home
+root@DROPLET_NAME:/home# git version
 git version 2.34.1
 ```
 then...
 
 ```
-root@breirfoxforecast-alpha:/home# git clone https://github.com/openpredictionmarkets/socialpredict.git
+root@DROPLET_NAME:/home# git clone https://github.com/openpredictionmarkets/socialpredict.git
 ```
+
+[add more instructions here]
 
 ### Set Up Environmental Variables for Ports
 
