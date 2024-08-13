@@ -266,6 +266,12 @@ Once you're done, type `./SocialPredict up` to spin up a SocialPredict instance 
 
 If you want to spin down your SocialPredict instance, just type `./SocialPredict down` in your console.
 
+### Account Setup and Market Creation
+
+When you first log in as an administrator, you will not have the ability to create markets. Admin users do not have this ability. This is a safety feature. Instead, you need to create new user accounts. Navigate to the dashboard on the left-hand side and click the icon that looks like a cog. You will be able to create a new user, with a randomly generated password.
+
+Log in as the new user you created. You'll be prompted to change your password, then to log out and log back in again. After successfully logging in with your new password, you will be able to create markets.
+
 ### Prod Tools
 
 * There are several debugging tools which can be used on prod to help figure out what might be going wrong in different instances.

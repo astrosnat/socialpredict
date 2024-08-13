@@ -13,7 +13,7 @@ Currently, the project is supported on Ubuntu up to 23.10 LTS and MacOS. Windows
 - **Install Docker**: Install Docker on your local machine. [Here is the link to the Docker installation guide.](https://docs.docker.com/get-docker/) We are assuming the latest version of Docker as of the date of this document. Windows users will need to follow the instructions for installing Docker on WSL2. [Here is the link to set up the Docker Desktop backend on WSL2.](https://docs.docker.com/desktop/wsl/)
 - **Install docker compose**: Install `docker compose` on your local machine. [Here is the link to the docker compose installation guide](https://docs.docker.com/compose/install/). We are assuming the latest version of docker compose as of the date of this document. NOTE: `docker-compose` is deprecated and the command to use should be `docker compose`.
 - Within the root of the `./socialpredict` repo, run the command, `./SocialPredict install`.
-- Select (2) Development, then select to rebuild the `.env` file and rebuild the imgages.
+- Select (2) Development, then select to rebuild the `.env` file and rebuild the images.
 - When this has completed, run `./SocialPredict up`...this will use `docker compose` to spin up the images into containers on your machine.
 - Once this is fully up and running, you can then visit `localhost` and log in to use the app.
 
@@ -76,8 +76,14 @@ docker compose -p scripts logs | grep postgres
 docker compose -p scripts logs | grep certbot
 ```
 
+### Account Setup and Market Creation
+
+When you first log in as an administrator, you will not have the ability to create markets. Admin users do not have this ability. This is a safety feature. Instead, you need to create new user accounts. Navigate to the dashboard on the left-hand side and click the icon that looks like a cog. You will be able to create a new user, with a randomly generated password.
+
+Log in as the new user you created. You'll be prompted to change your password, then to log out and log back in again. After successfully logging in with your new password, you will be able to create markets.
+
 ### Setting Up a Staging Instance On the Web
 
-While we don't like to say we have an official, "prod," version yet per se, we do give the ability for you to run an staging instance online which for all intents and purposes is a functioning web app. However we don't endorse this app as being completely secure and recoverable without extra work. We're working on getting SocialPredict in a more reliable, secure state.
+While we don't like to say we have an official `prod` version yet per se, we do give the ability for you to run an staging instance online which for all intents and purposes is a functioning web app. However we don't endorse this app as being completely secure and recoverable without extra work. We're working on getting SocialPredict in a more reliable, secure state.
 
 See [Stage Setup](/README/STAGE_SETUP.md)
